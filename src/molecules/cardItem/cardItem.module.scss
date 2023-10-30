@@ -1,0 +1,29 @@
+
+
+.container {
+    align-items: start;
+    margin: 10px;
+
+}
+
+.itemContainer {
+    display: flex;
+    border: none;
+    width: 300px;
+    padding: 4px;
+    border: 1px solid rgb(195, 193, 193);
+}
+
+.imageContainer {
+    height: auto;
+}
+
+.imageItem {
+    width: 400px;
+    height: auto;
+}
+
+.textItem {
+    width: 300px;
+    text-align: center;
+}
