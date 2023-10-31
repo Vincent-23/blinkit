@@ -1,6 +1,13 @@
 
+
+.items {
+display: flex;
+flex-direction: column;
+}
+
 .card {
-    background-color: aqua;
+    background-color: white;
+    width: 180px;
     height: 250px;
     padding: 10px;
     border-radius: 10px;
@@ -9,8 +16,22 @@
 .image {
     text-align: center;
     padding: 10px;
+    width: 150px;
+    height: 100px;
+    margin: 0 auto;
 }
 
-.title, .weightText {
+.productName {
+    font-weight: 700;
     text-align: left;
+}
+
+.productName, .productQuantity {
+    text-align: left;
+}
+
+.productQuantity {
+    color: gray;
+    font-weight: bold;
+    padding: 10px;
 }

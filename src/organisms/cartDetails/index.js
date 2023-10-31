@@ -1,3 +1,3 @@
-import CardDetails from "../../molecules/cardDetails/CardDetails";
+import CartDetails from "./CartDetails";
 
-export default CardDetails;
+export default CartDetails;

@@ -6,7 +6,7 @@ import Text from "../../atoms/text";
 import QuantityBtn from "../quantityBtn";
 import styles from "./cardPriceQuantity.module.scss";
 
-const CardPriceQuantity = ({ className="", items}) => {
+const CardPriceQuantity = ({ className="", items = {} }) => {
   return (
     <HorizontalContainer className={classNames(styles.container, className)}>
       <VerticalContainer className={classNames(styles.priceContainer)}>
@@ -14,7 +14,7 @@ const CardPriceQuantity = ({ className="", items}) => {
         <Text className={classNames(styles.mrpPrice)}>{`₹ ${items.actualPrice}`}</Text>
       </VerticalContainer>
       <HorizontalContainer className={classNames(styles.quantityBtnItem)}>
-      <QuantityBtn className={styles.quantityBtn}/>
+      <QuantityBtn className={styles.quantityBtn} items={items}/>
       </HorizontalContainer>
     </HorizontalContainer>
   );

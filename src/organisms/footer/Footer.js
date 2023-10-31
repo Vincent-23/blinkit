@@ -10,13 +10,13 @@ import styles from "./footer.module.scss";
 
 const Footer = ({ className = "" }) => {
   return (
-    <VerticalContainer className={classNames(styles.footerCotainer, className)}>
-      <FooterPara className={classNames(styles.footerCotainer, className)} />
-      <VerticalContainer>
+    <VerticalContainer className={classNames(styles.footerContainer, className)}>
+      <FooterPara className={classNames(styles.footerParaText, className)} />
+      <VerticalContainer className={classNames(styles.footerLogoContainer, className)}>
         <HorizontalContainer>
-          <FooterLeftContent />
-          <FooterDownloadContent />
-          <FooterLogo />
+          <FooterLeftContent className={classNames(styles.footerSinceCompanyText, className)}/>
+          <FooterDownloadContent className={classNames(styles.footerDownloadLogo, className)}/>
+          <FooterLogo className={classNames(styles.footerSocialMediaLogo, className)}/>
         </HorizontalContainer>
       </VerticalContainer>
     </VerticalContainer>

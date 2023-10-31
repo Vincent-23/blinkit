@@ -2,6 +2,10 @@
 
 .headerVerticalContainer {
     // position: fixed;
+    position: fixed;
+    width: -webkit-fill-available;
+    background-color: white;
+    margin-bottom: 20px;
 }
 
 .navLogo {

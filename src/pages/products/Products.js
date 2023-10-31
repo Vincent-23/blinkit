@@ -6,38 +6,37 @@ import LeftSideBar from "../../molecules/leftSideBar/LeftSideBar";
 import HomeProductList from "../../organisms/homeProductList/HomeProductList";
 import styles from "./product.module.scss";
 import HeaderDropDown from "../../organisms/headerDropDown/HeaderDropDown";
-import CardDetails from "../../organisms/cartDetails";
+import CardDetails from "../../molecules/cardDetails";
 import ProductItems from "../../datas/productItems.json";
 
 const ListingCardProduct = ({ items }) => {
-  console.log("Listing!", items);
-  return items?.map((itemData) => (
+  console.log("element!", items);
+  return items?.map((productItem) =>
+    productItem.products.map((items) => (
       <CardDetails
         className={classNames(styles.cardItems)}
-        items={itemData.products}
+        items={items}
       />
-  ));
+    ))
+  );
 };
 
 const Products = ({ className = "" }) => {
-  console.log("element!", <ListingCardProduct items={ProductItems} />);
   return (
-    <VerticalContainer
-      className={classNames(styles.productContainer, className)}
-    >
-      <HorizontalContainer
-        className={classNames(styles.productItem, className)}
+    <HorizontalContainer className={styles.container}>
+      <LeftSideBar />
+      <VerticalContainer
+        className={classNames(styles.headerDropDown, className)}
       >
-        <LeftSideBar />
-        <VerticalContainer
-          className={classNames(styles.headerDropDown, className)}
-        >
+        <VerticalContainer>
           <HeaderDropDown className={classNames(styles.dropDownItem)} />
-          {/* <HomeProductList /> */}
+        </VerticalContainer>
+        {/* <HomeProductList /> */}
+        <VerticalContainer className={classNames(styles.cardsContainer)}>
           <ListingCardProduct items={ProductItems} />
         </VerticalContainer>
-      </HorizontalContainer>
-    </VerticalContainer>
+      </VerticalContainer>
+    </HorizontalContainer>
   );
 };
 

@@ -10,18 +10,19 @@ import CardPriceQuantity from "../cardPriceQuantity";
 
 import styles from "./cardDetails.module.scss";
 
-const CardDetails = ({ className="" , items = []}) => {
+const CardDetails = ({ className = "", items = [] }) => {
   return (
-    <VerticalContainer  className={classNames(styles.container, className)}>
-      <Card className={styles.card}>
-        {/* <HorizontalContainer className={styles.item}> */}
-          <Image className={styles.image} image={items.productImage} />
-          <Text className={styles.productName}>Title</Text>
-          <Text className={styles.productQuantity}>700 g</Text>
-        {/* </HorizontalContainer> */}
-        <CardPriceQuantity className={styles.priceQuantityItem} items={items}/>
-        <VerticalContainer />
-      </Card>
+    <VerticalContainer className={classNames(styles.container, className)}>
+        <Card className={styles.card}>
+          <Image className={styles.image} image={items?.productImage} />
+          <Text className={styles.productName}>{items?.productName}</Text>
+          <Text className={styles.productQuantity}>{items?.productQuantity}</Text>
+          <CardPriceQuantity
+            className={styles.priceQuantityItem}
+            items={items}
+          />
+          <VerticalContainer />
+        </Card>
     </VerticalContainer>
   );
 };

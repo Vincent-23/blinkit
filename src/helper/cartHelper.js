@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { setCart } from "../stores/reducer";
 
-export default function useCart() {
+export default function CartHelper() {
   const cart = useSelector((state) => state.cart.value);
   const dispatch = useDispatch();
 

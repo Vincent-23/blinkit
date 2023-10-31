@@ -4,8 +4,14 @@
     justify-content: space-between;
 }
 
+.offerPrice {
+    font-weight: bold;
+    padding: 0px;
+}
+
 .mrpPrice {
     padding: 0px;
+    text-decoration: line-through;
 }
 .quantityBtn {
     text-align: end;

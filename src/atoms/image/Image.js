@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const Image = ({ className = "", to = "/", image }) => {
   return (
     <div className={classNames(styles.container, className)}>
-      <Link to={to}>
+      {/* <Link to={to}> */}
         <img className={styles.imageItem} src={image} />
-      </Link>
+      {/* </Link> */}
     </div>
   );
 };
