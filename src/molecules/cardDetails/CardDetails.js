@@ -12,14 +12,15 @@ import styles from "./cardDetails.module.scss";
 
 const CardDetails = ({ className = "", items = [] }) => {
   return (
-    <VerticalContainer className={classNames(styles.container, className)}>
-        <Card className={styles.card}>
+    <VerticalContainer className={classNames(styles.container, className)} key={items?.id}>
+        <Card className={styles.card} key={items?.id}>
           <Image className={styles.image} image={items?.productImage} />
           <Text className={styles.productName}>{items?.productName}</Text>
           <Text className={styles.productQuantity}>{items?.productQuantity}</Text>
           <CardPriceQuantity
             className={styles.priceQuantityItem}
             items={items}
+            key={items?.id}
           />
           <VerticalContainer />
         </Card>

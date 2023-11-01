@@ -7,17 +7,17 @@ import Text from "../../atoms/text";
 import QuantityBtn from "../quantityBtn";
 import styles from './cartImagePrice.module.scss'
 
-const CartImagePrice = () => {
+const CartImagePrice = ({ items }) => {
   return (
     <VerticalContainer className={classNames(styles.container)}>
      
         <HorizontalContainer className={classNames(styles.container)}>
-          <Image className={classNames(styles.imageItem)} image={"https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=80/app/images/products/sliding_image/532903a.jpg"} />
+          <Image className={classNames(styles.imageItem)} image={items?.productImage} />
           <VerticalContainer className={classNames(styles.textContainer)}>
             {/* <HorizontalContainer> */}
-              <Text className={classNames(styles.titleText)}>Supreme joy gift pack</Text>
-              <Text className={classNames(styles.weightText)}>500 g</Text>
-              <Text className={classNames(styles.PriceText)}>₹ 200</Text>
+              <Text className={classNames(styles.titleText)}>{items?.productName}</Text>
+              <Text className={classNames(styles.weightText)}>{items?.productQuantity}</Text>
+              <Text className={classNames(styles.PriceText)}>{`₹ ${items?.actualPrice}`}</Text>
             {/* </HorizontalContainer> */}
           </VerticalContainer>
           <QuantityBtn />

@@ -6,31 +6,63 @@ import AddIcon from "@mui/icons-material/Add";
 import Verticalcontainer from "../../atoms/verticalContainer";
 import Text from "../../atoms/text";
 import horizontalContainer from "../../atoms/horizotalContainer";
-import CartHelper from '../../helper/cartHelper.js';
+import { useDispatch, useSelector } from "react-redux";
+import { addCart, removeCart } from "../../stores/cartSlice";
+
 import styles from "./quantity.module.scss";
 
 const QuantityBtn = ({ className = "", items = {} }) => {
 
-  const [ isAdding, setIsAdding] = useState(false);
-  const { isInCart, addToCart, addQuantity, removeQuantity, getItemCount, getTotalAmount } = CartHelper();
-  console.log("q!", items);
-  const handleAddCart = async (data) => {
-    await addToCart(data)
-    await isInCart(data?.id);
-    console.log("q!", isInCart(data?.id));
+  const dispatch = useDispatch();
 
+
+
+  const [ isAdding, setIsAdding] = useState();
+
+  const[count, setCount] = useState({})
+  const handleAddCart=(items) =>{
+    
+    setIsAdding({...isAdding, [items.id]: true})
+    
+    console.log({...count,[items.id]: 1})
+    setCount({...count,[items.id]: 1})
+    
+    
+    
+    dispatch(addCart({...items}))
   }
+
+
+  
+
+  const handleAddQuantity = (items) => {
+
+    setCount({...count, [items.id] : count[items.id] + 1})
+
+    dispatch(addCart({...items}))
+
+   
+   
+    
+  }
+const handleDecrement = (items) =>{
+  setCount({...count,[items.id]: count[items.id] - 1})
+  dispatch(removeCart({...items}))
+}
+
+
   return (
     <horizontalContainer className={classNames(styles.container, className)}>
-      {isInCart(items?.id) ? (
+      {!isAdding ? (
         <Text onClick={() => handleAddCart(items)}>Add</Text>
+        // <button onClick={()=> handleAddCart(items)}> ADD</button>
       ) : (
         <>
-          <RemoveIcon className={classNames(styles.minusBtnItem, className)} onClick={() => removeQuantity(items?.id)}/>
+          <RemoveIcon className={classNames(styles.minusBtnItem, className)} onClick={()=> handleDecrement(items)} />
           <Text className={classNames(styles.quantityTextItem, className)}>
-            {getItemCount()}
+            {count[items.id]}
           </Text>
-          <AddIcon className={classNames(styles.addBtnItem, className)} onClick={() => addQuantity(items?.id)}/>
+          <AddIcon className={classNames(styles.addBtnItem, className)} onClick={() => handleAddQuantity(items)}/>
         </>
       )}
     </horizontalContainer>

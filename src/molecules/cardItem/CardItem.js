@@ -9,7 +9,7 @@ import styles from "./cardItem.module.scss";
 const CategoryListElement = ({ className = "", categoryList }) => {
   return categoryList.map((items) => (
     <div
-      className={classNames(`${styles.itemContainer} active`, className)}
+      className={classNames(`${styles.itemContainer}`, className)}
       key={items?.id}
     >
       <div className={classNames(styles.imageContainer, className)}>

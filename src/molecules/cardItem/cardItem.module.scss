@@ -1,6 +1,5 @@
 .container {
   align-items: start;
-  margin: 10px;
 }
 
 .itemContainer {
@@ -12,18 +11,24 @@
   border-bottom: none;
   align-items: center;
   position: relative;
-  &.active {
-    background-color: #ebfeef;
-    &::before {
-      content: "";
-      width: 5px;
-      height: 100%;
-      background: #008001;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+  background-color: #e7f8eb;
+
+  &:hover {
+    background-color: #80f499;
   }
+  
+  // &.active {
+  //   background-color: #ebfeef;
+  //   &::before {
+  //     content: "";
+  //     width: 5px;
+  //     height: 100%;
+  //     background: #008001;
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //   }
+  // }
 }
 
 .imageContainer {

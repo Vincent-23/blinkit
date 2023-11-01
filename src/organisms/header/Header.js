@@ -26,7 +26,6 @@ const Header = () => {
   const handleNavigateToHome = () => {
     navigate('/');
   }
-  //   console.log("test!", VerticalContainer);
   return (
     <>
       <VerticalContainer className={styles.headerVerticalContainer}>

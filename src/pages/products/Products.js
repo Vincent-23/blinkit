@@ -12,12 +12,11 @@ import ProductItems from "../../datas/productItems.json";
 const ListingCardProduct = ({ items }) => {
   console.log("element!", items);
   return items?.map((productItem) =>
-    productItem.products.map((items) => (
       <CardDetails
         className={classNames(styles.cardItems)}
-        items={items}
+        items={productItem}
+        key={productItem?.id}
       />
-    ))
   );
 };
 
