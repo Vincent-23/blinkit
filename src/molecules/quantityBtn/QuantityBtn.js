@@ -27,8 +27,7 @@ const QuantityBtn = ({ className = "", items = {} }) => {
     console.log({...count,[items.id]: 1})
     setCount({...count,[items.id]: 1})
     
-    
-    
+  
     dispatch(addCart({...items}))
   }
 
